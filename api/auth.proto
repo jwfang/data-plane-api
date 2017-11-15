@@ -7,10 +7,9 @@ import "api/sds.proto";
 message AuthAction {
   // Should we do white-list or black-list style access control.
   enum ActionType {
-    // Request matches all rules are allowed, otherwise denied.
+    // Request matches are allowed, otherwise denied.
     ALLOW = 0;
-    // Request matches all rules or missing required auth fields are denied,
-    // otherwise allowed.
+    // Request matches or missing required fields are denied, otherwise allowed.
     DENY = 1;
   }
 
@@ -41,6 +40,6 @@ message AuthAction {
     }
   }
 
-  // List of rules
-  repeated Rule rule = 2;
+  // Auth rule.
+  Rule rule = 2;
 }
